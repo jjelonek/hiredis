@@ -9,8 +9,9 @@
 #ifndef redisconnector_h
 #define redisconnector_h
 
-extern int openRedis(char *host, int port);
-extern int closeRedis();
-extern int execRedisCmd(char *cmd, char *replyStr, int *replyInt);
+#include <stdlib.h>
+
+extern int openRedisDB(char *host, int port);
+extern int execRedisCmd(char *cmd, char *replyStr, char *replyInt);
 
 #endif

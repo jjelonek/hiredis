@@ -3,7 +3,7 @@
 # Copyright (C) 2010-2011 Pieter Noordhuis <pcnoordhuis at gmail dot com>
 # This file is released under the BSD license, see the COPYING file
 
-OBJ=net.o hiredis.o sds.o async.o
+OBJ=net.o hiredis.o sds.o async.o redisconnector.o
 EXAMPLES=hiredis-example hiredis-example-libevent hiredis-example-libev
 TESTS=hiredis-test
 LIBNAME=libhiredis
@@ -62,6 +62,8 @@ async.o: async.c async.h hiredis.h sds.h dict.c dict.h
 hiredis.o: hiredis.c fmacros.h hiredis.h net.h sds.h
 sds.o: sds.c sds.h
 test.o: test.c hiredis.h
+redisconnector.o: redisconnector.c redisconnector.h
+
 
 $(DYLIBNAME): $(OBJ)
 	$(DYLIB_MAKE_CMD) $(OBJ)
